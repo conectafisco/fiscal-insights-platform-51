@@ -17,7 +17,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copia arquivos buildados
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# EXPOSE a porta 3000 (Padrão esperado por muitas ferramentas PaaS)
-EXPOSE 3000
+# ✅ EXPOSE a porta 80 (nginx está configurado para listen 80)
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
